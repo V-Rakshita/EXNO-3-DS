@@ -208,6 +208,6 @@ plt.show()
 
 
 # RESULT:
-       # INCLUDE YOUR RESULT HERE
+The given data has been read, Feature Encoding and Transformation process have been performed and the data has been saved to a file.
 
        
