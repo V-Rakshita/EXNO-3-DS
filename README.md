@@ -135,6 +135,62 @@ plt.show()
 ```
 <img width="602" height="460" alt="image" src="https://github.com/user-attachments/assets/dc18ac77-0a74-47f0-9955-d974867aa4cd" />
 
+```python
+sm.qqplot(np.log(df['Moderate Positive Skew']),line="45")
+plt.show()
+```
+<img width="608" height="449" alt="image" src="https://github.com/user-attachments/assets/27d0e00c-9288-4fa5-94aa-03d200089f28" />
+
+```python
+sm.qqplot((df['Moderate Negative Skew'])**2,line="45")
+plt.show()
+```
+<img width="590" height="456" alt="image" src="https://github.com/user-attachments/assets/492315c0-6209-4f0a-b72a-261c7feb2f8a" />
+
+```python
+from sklearn.preprocessing import QuantileTransformer
+enc = QuantileTransformer(output_distribution="normal")
+df['quantile'] = enc.fit_transform(df[['Highly Positive Skew']]).flatten()
+df
+```
+<img width="806" height="443" alt="image" src="https://github.com/user-attachments/assets/80b3e081-9a84-4ea6-8342-00e44be2d13f" />
+
+```python
+sm.qqplot(df['quantile'],line="45")
+plt.show()
+```
+<img width="583" height="452" alt="image" src="https://github.com/user-attachments/assets/242b4e70-2c17-4e96-b574-f6495d410de0" />
+
+```python
+enc = QuantileTransformer(output_distribution="normal")
+df['quantile2'] = enc.fit_transform(df[['Highly Negative Skew']]).flatten()
+sm.qqplot(df['quantile2'],line="45")
+plt.show()
+```
+<img width="586" height="450" alt="image" src="https://github.com/user-attachments/assets/7603a52b-0559-4fb3-b7fb-ce75d0851f85" />
+
+```python
+enc = QuantileTransformer(output_distribution="normal")
+df['quantile3'] = enc.fit_transform(df[['Moderate Negative Skew']]).flatten()
+sm.qqplot(df['quantile3'],line="45")
+plt.show()
+```
+<img width="589" height="443" alt="image" src="https://github.com/user-attachments/assets/9cb9654d-5dcc-4897-b7d7-ea8e0b8ffa7a" />
+
+```python
+enc = QuantileTransformer(output_distribution="normal")
+df['quantile4'] = enc.fit_transform(df[['Moderate Positive Skew']]).flatten()
+sm.qqplot(df['quantile4'],line="45")
+plt.show()
+```
+<img width="591" height="446" alt="image" src="https://github.com/user-attachments/assets/300ec00e-5d3f-45b3-a1fa-2f41bc9d988e" />
+
+
+
+
+
+
+
 
 
 
